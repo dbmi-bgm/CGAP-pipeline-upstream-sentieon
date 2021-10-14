@@ -28,7 +28,7 @@ inputs:
         inputBinding:
           prefix: -v
     inputBinding:
-      position: 3
+      position: 5
     secondaryFiles:
       - .tbi
     doc: input gvcf files
@@ -51,15 +51,32 @@ inputs:
       prefix: --algo
     doc: algorithm used
 
+  - id: known-sites-snp
+    type: File
+    inputBinding:
+      position: 3
+      prefix: -d
+    secondaryFiles:
+      - .tbi
+    doc: expect the path to the dbsnp vcf gz file
+
+  - id: threshold
+    type: int
+    default: 10
+    inputBinding:
+      position: 4
+      prefix: --call_conf
+    doc: -stand-call-conf threshold
+
   - id: outputfile
     default: 'out.vcf.gz'
     type: string
     inputBinding:
-      position: 4
+      position: 6
     doc: output file name
 
 outputs:
-  - id: output
+  - id: vcf
     type: File
     outputBinding:
       glob: $(inputs.outputfile)
