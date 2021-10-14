@@ -1,0 +1,13 @@
+[
+    {
+        "project": "PROJECT_UUID",
+        "institution": "INSTITUTION_UUID",
+        "name": "sentieon",
+        "software_type": [
+            "other"
+        ],
+        "title": "sentieon_202010.02",
+        "uuid": "",
+        "version": "202010.02"
+    }
+]
