@@ -1,2 +1,2 @@
-# CGAP-pipeline-upstream-sentieon
+# cgap-pipeline-upstream-sentieon
 upstream pipeline using sentieon
