@@ -26,11 +26,11 @@
       "name": "workflow_sentieon-GVCFtyper",
       "workflow": "f942c377-b24d-43fa-9bbe-17bb0e6b94a3",
       "config": {
-        "instance_type": "c5.4xlarge",
+        "instance_type": "c5a.8xlarge",
         "ebs_size": "4x",
         "EBS_optimized": true,
-        "spot_instance": false,
-        "run_name": "run_workflow_granite-mpileupCounts",
+        "spot_instance": true,
+        "run_name": "run_workflow_sentieon-GVCFtyper",
         "behavior_on_capacity_limit": "wait_and_retry"
       },
       "custom_pf_fields": {
