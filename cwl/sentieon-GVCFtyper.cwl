@@ -69,7 +69,7 @@ inputs:
     doc: -stand-call-conf threshold
 
   - id: outputfile
-    default: 'out.vcf.gz'
+    default: "out.vcf.gz"
     type: string
     inputBinding:
       position: 6
