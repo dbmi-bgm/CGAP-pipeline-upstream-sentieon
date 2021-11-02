@@ -258,7 +258,7 @@
     {
         "file_format": "bam",
         "standard_file_extension": "bam",
-        "description": "This format is used for aligned reads",
+        "description": "this format is used for aligned reads",
         "uuid": "d13d06cf-218e-4f61-aaf0-91f226248b3c",
         "extrafile_formats": [
             "d13d06c1-218e-4f61-aaf0-91f226248b3c"

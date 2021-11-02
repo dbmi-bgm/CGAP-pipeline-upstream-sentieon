@@ -1,9 +1,10 @@
 {
   "accession": "GAPMWZLTWHK3",
   "name": "sentieon_joint-calling_gvcf",
-  "title": "Sentieon Joint-calling gvcf VERSION",
+  "title": "Sentieon Joint-Calling GVCF VERSION",
   "version": "VERSION",
   "uuid": "c2587476-3564-4433-b8dd-ea24a897da87",
+  "description": "Jointly call multiple g.vcf files using Sentieon",
   "project": "PROJECT_UUID",
   "institution": "INSTITUTION_UUID",
   "input": [
@@ -36,9 +37,9 @@
       },
       "custom_pf_fields": {
           "vcf": {
-              "file_type": "joint called VCF",
+              "file_type": "jointly called VCF",
               "variant_type": "SNV",
-              "description": "joint called VCF file"
+              "description": "Jointly called VCF file"
           }
       },
       "input": [
