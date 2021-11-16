@@ -31,7 +31,7 @@
         "instance_type": "c5a.8xlarge",
         "ebs_size": "4x",
         "EBS_optimized": true,
-        "spot_instance": true,
+        "spot_instance": false,
         "run_name": "run_workflow_sentieon-GVCFtyper",
         "behavior_on_capacity_limit": "wait_and_retry"
       },
