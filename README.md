@@ -12,7 +12,7 @@ The upstream pipeline can process paired `FASTQ` files up to analysis ready `bam
 The joint calling pipeline can jointly call multiple `g.vcf` files and produces a `vcf` file as output.
 For more details check the [*documentation*](https://cgap-pipeline-master.readthedocs.io/en/latest/Pipelines/Upstream/upstream_sentieon/index-upstream_sentieon.html "upstream pipeline Sentieon").
 
-### Version updates
+### Version Updates
 
 #### v1
 * Initial release for joint calling pipeline
