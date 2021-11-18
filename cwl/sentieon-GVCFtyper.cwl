@@ -60,21 +60,21 @@ inputs:
       - .tbi
     doc: expect the path to the dbsnp vcf gz file
 
-  - id: call-threshold
+  - id: call_threshold
     type: int
     default: 10
     inputBinding:
       position: 4
       prefix: --call_conf
-    doc: -stand-call-conf call threshold
+    doc: -stand-call-conf call threshold (must match emit_threshold)
 
   - id: emit_threshold
     type: int
-    default: $(inputs.call-threshold)
+    default: 10
     inputBinding:
       position: 5
       prefix: --emit_conf
-    doc: -stand-call-conf emit threshold
+    doc: -stand-call-conf emit threshold (must match call_threshold)
 
   - id: emit_mode
     type: string
