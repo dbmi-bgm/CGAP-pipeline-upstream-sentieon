@@ -28,7 +28,7 @@ inputs:
         inputBinding:
           prefix: -v
     inputBinding:
-      position: 5
+      position: 7
     secondaryFiles:
       - .tbi
     doc: input gvcf files
@@ -60,19 +60,35 @@ inputs:
       - .tbi
     doc: expect the path to the dbsnp vcf gz file
 
-  - id: threshold
+  - id: call-threshold
     type: int
     default: 10
     inputBinding:
       position: 4
       prefix: --call_conf
-    doc: -stand-call-conf threshold
+    doc: -stand-call-conf call threshold
+
+  - id: emit_threshold
+    type: int
+    default: $(inputs.call-threshold)
+    inputBinding:
+      position: 5
+      prefix: --emit_conf
+    doc: -stand-call-conf emit threshold
+
+  - id: emit_mode
+    type: string
+    default: "variant"
+    inputBinding:
+      position: 6
+      prefix: --emit_mode
+    doc: --emit_mode with options of "variant", "confident", or "all"
 
   - id: outputfile
     default: "out.vcf.gz"
     type: string
     inputBinding:
-      position: 6
+      position: 8
     doc: output file name
 
 outputs:
