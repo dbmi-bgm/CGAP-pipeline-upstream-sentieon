@@ -2,7 +2,7 @@
 
 # CGAP Upstream Pipeline (and Joint Calling) - Sentieon
 
-This repository contains components for the CGAP upstream pipeline and the joint calling pipeline using Setieon:
+This repository contains components for the CGAP upstream pipeline and the joint calling pipeline using Sentieon:
 
   * CWL workflows
   * CGAP Portal Workflows and MetaWorkflows objects
