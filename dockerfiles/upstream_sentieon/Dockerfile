@@ -46,6 +46,10 @@ RUN wget https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-20
     tar -xzvf sentieon-genomics-202010.02.tar.gz && \
     ln -s sentieon-genomics-202010.02 sentieon
 
+# fastq to bam
+COPY sentieon_fastq2bam.sh .
+RUN chmod +x sentieon_fastq2bam.sh
+
 # env paths
 ENV PATH=/usr/local/bin/sentieon/bin/:$PATH
 
