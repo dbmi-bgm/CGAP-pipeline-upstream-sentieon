@@ -72,18 +72,21 @@ inputs:
     doc: expect the path to the indel vcf file
 
   - id: sample
+    default: "SAMPLE"
     type: string
     inputBinding:
       position: 7
     doc:
 
   - id: platform
+    default: "PLATFORM"
     type: string
     inputBinding:
       position: 8
     doc:
 
   - id: optical_dup_pix_dist
+    default: 2500
     type: int
     inputBinding:
       position: 9
@@ -98,3 +101,4 @@ outputs:
         - .bai
 
 doc: |
+  run sentieon pipeline from paired-fastq files to bam
