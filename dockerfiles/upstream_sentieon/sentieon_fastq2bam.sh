@@ -29,8 +29,8 @@ nt=$(nproc) #number of threads to use in computation, set to number of cores in 
 fasta="reference.fasta"
 
 # fasta
-ln -s ${reference_fa}.fasta reference.fasta
-ln -s ${reference_fa}.fasta.fai reference.fasta.fai
+ln -s ${reference_fa}.fa reference.fasta
+ln -s ${reference_fa}.fa.fai reference.fasta.fai
 ln -s ${reference_fa}.dict reference.dict
 
 # bwt
