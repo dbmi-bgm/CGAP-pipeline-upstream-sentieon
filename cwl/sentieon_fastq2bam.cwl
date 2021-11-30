@@ -7,6 +7,12 @@ class: CommandLineTool
 requirements:
   - class: InlineJavascriptRequirement
 
+  - class: EnvVarRequirement
+    envDef:
+      -
+        envName: SENTIEON_LICENSE
+        envValue: LICENSEID
+
 hints:
   - class: DockerRequirement
     dockerPull: ACCOUNT/upstream_sentieon:VERSION
