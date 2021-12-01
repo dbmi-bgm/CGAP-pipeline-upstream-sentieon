@@ -68,3 +68,27 @@ sentieon driver -t $nt -i sorted.bam --algo Dedup --optical_dup_pix_dist $optica
 # ******************************************
 sentieon driver -r $fasta -t $nt -i deduped.bam --algo QualCal -k $dbsnp -k $known_Mills_indels recal_data.table || exit 1
 sentieon driver -r $fasta -t $nt -i deduped.bam -q recal_data.table --algo ReadWriter recalibrated.bam || exit 1
+
+# ******************************************
+# 4. Check recalibrated bam integrity.
+# ******************************************
+py_script="
+import sys, os
+
+def check_EOF(filename):
+    EOF_hex = b'\x1f\x8b\x08\x04\x00\x00\x00\x00\x00\xff\x06\x00\x42\x43\x02\x00\x1b\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    size = os.path.getsize(filename)
+    fb = open(filename, 'rb')
+    fb.seek(size - 28)
+    EOF = fb.read(28)
+    fb.close()
+    if EOF != EOF_hex:
+        sys.stderr.write('EOF is missing\n')
+        sys.exit(1)
+    else:
+        sys.stderr.write('EOF is present\n')
+
+check_EOF('recalibrated.bam')
+"
+
+python -c "$py_script" || exit 1
