@@ -50,6 +50,14 @@ RUN wget https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-20
 COPY sentieon_fastq2bam.sh .
 RUN chmod +x sentieon_fastq2bam.sh
 
+# bwa mem
+COPY sentieon_bwa-mem.sh .
+RUN chmod +x sentieon_bwa-mem.sh
+
+# dedup and recal
+COPY sentieon_dedup-recal.sh .
+RUN chmod +x sentieon_dedup-recal.sh
+
 # env paths
 ENV PATH=/usr/local/bin/sentieon/bin/:$PATH
 
