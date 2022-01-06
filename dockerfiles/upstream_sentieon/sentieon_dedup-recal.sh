@@ -2,14 +2,14 @@
 
 # *******************************************
 # Script to generate an analysis ready bam
-# for a single sample from a sorted bam file.
-# The sorted bam file need to be processed
+# for a single sample from a raw bam file.
+# The raw bam file need to be processed
 # to add read groups.
 # *******************************************
 
 ## Command line arguments
 # input bam
-sorted_bam=$1
+raw_bam=$1
 
 # reference data files
 reference_fa=$2
@@ -31,21 +31,26 @@ ln -s ${reference_fa}.fa.fai reference.fasta.fai
 ln -s ${reference_fa}.dict reference.dict
 
 # ******************************************
-# 1. Remove Duplicate Reads. It is possible
+# 1. Sort bam.
+# ******************************************
+sentieon util sort -t $nt -i $raw_bam -o sorted.bam || exit 1
+
+# ******************************************
+# 2. Remove Duplicate Reads. It is possible
 # to mark instead of remove duplicates
 # by ommiting the --rmdup option in Dedup.
 # ******************************************
-sentieon driver -t $nt -i $sorted_bam --algo LocusCollector --fun score_info score.txt || exit 1
-sentieon driver -t $nt -i $sorted_bam --algo Dedup --optical_dup_pix_dist $optical_dup_pix_dist --score_info score.txt --metrics dedup_metrics.txt deduped.bam || exit 1
+sentieon driver -t $nt -i sorted.bam --algo LocusCollector --fun score_info score.txt || exit 1
+sentieon driver -t $nt -i sorted.bam --algo Dedup --optical_dup_pix_dist $optical_dup_pix_dist --score_info score.txt --metrics dedup_metrics.txt deduped.bam || exit 1
 
 # ******************************************
-# 2. Base recalibration.
+# 3. Base recalibration.
 # ******************************************
 sentieon driver -r $fasta -t $nt -i deduped.bam --algo QualCal -k $dbsnp -k $known_Mills_indels recal_data.table || exit 1
 sentieon driver -r $fasta -t $nt -i deduped.bam -q recal_data.table --algo ReadWriter recalibrated.bam || exit 1
 
 # ******************************************
-# 3. Check recalibrated bam integrity.
+# 4. Check recalibrated bam integrity.
 # ******************************************
 py_script="
 import sys, os

@@ -24,7 +24,7 @@ inputs:
     type: File
     inputBinding:
       position: 1
-    doc: input bam file, must be sorted and must have read groups
+    doc: input bam file, must have read groups
 
   - id: reference_fa
     type: File

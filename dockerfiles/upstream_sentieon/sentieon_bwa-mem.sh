@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # *******************************************
-# Script to generate a sorted bam file
+# Script to generate a raw bam file
 # for a single sample with paired fastq files.
 # *******************************************
 
@@ -35,13 +35,13 @@ ln -s ${reference_bwt}.alt reference.fasta.alt
 
 
 # ******************************************
-# 1. Mapping reads with BWA-MEM, sorting.
+# 1. Mapping reads with BWA-MEM.
 # The results of this call are dependent on
 # the number of threads used.
 # To have number of threads independent results,
 # add chunk size option -K 10000000.
 # ******************************************
-( sentieon bwa mem -M -t $nt -K 10000000 $fasta $fastq_1 $fastq_2 || exit 1 ) | sentieon util sort -r $fasta -o sorted.bam -t $nt --sam2bam -i -
+( sentieon bwa mem -M -t $nt -K 10000000 $fasta $fastq_1 $fastq_2 || exit 1 ) | samtools view -@ $nt -Shb - > raw.bam || exit 1
 
 # ******************************************
 # 2. Check recalibrated bam integrity.
@@ -62,7 +62,7 @@ def check_EOF(filename):
     else:
         sys.stderr.write('EOF is present\n')
 
-check_EOF('sorted.bam')
+check_EOF('raw.bam')
 "
 
 python -c "$py_script" || exit 1

@@ -26,8 +26,7 @@
       {
           "argument_format": "bam",
           "argument_type": "Output processed file",
-          "workflow_argument_name": "sorted_bam",
-          "secondary_file_formats": ["bai"]
+          "workflow_argument_name": "raw_bam"
       }
   ],
   "custom_errors": [
@@ -42,7 +41,7 @@
   "cwl_directory_url_v1": "s3://CWLBUCKET/PIPELINE/VERSION",
   "cwl_main_filename": "sentieon_bwa-mem.cwl",
   "cwl_pointer": "",
-  "description": "Align paired-end reads to reference genome. Processing from fastq input files to sorted bam output file. An integrity check is performed on the output file",
+  "description": "Align paired-end reads to reference genome. Processing from fastq input files to raw bam output file. An integrity check is performed on the output file",
   "docker_image_name": "ACCOUNT/upstream_sentieon:VERSION",
   "docker_registry_url": "https://console.aws.amazon.com/ecr/repositories/",
   "institution": "INSTITUTION_UUID",
@@ -113,7 +112,8 @@
                   "Align paired-end reads to reference genome"
               ],
               "software_used": [
-                 "/softwares/9b818e1b-509a-416d-b535-cd36ff91321b"
+                 "/softwares/9b818e1b-509a-416d-b535-cd36ff91321b",
+                 "/softwares/3f2d3b0e-0365-4212-9468-c16ad9531c4d"
               ]
           },
           "name": "sentieon bwa-mem",
@@ -125,10 +125,10 @@
                       "global": true,
                       "type": "data file"
                   },
-                  "name": "sorted_bam",
+                  "name": "raw_bam",
                   "target": [
                       {
-                          "name": "sorted_bam"
+                          "name": "raw_bam"
                       }
                   ]
               }

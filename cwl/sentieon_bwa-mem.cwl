@@ -56,13 +56,10 @@ inputs:
     doc: expect the path to the bwt file
 
 outputs:
-  - id: sorted_bam
+  - id: raw_bam
     type: File
     outputBinding:
-      glob: sorted.bam
-    secondaryFiles:
-        - .bai
+      glob: raw.bam
 
 doc: |
-  run sentieon bwa mem on paired-fastq files |
-  run sentieon sort to sort bwa mem output
+  run sentieon bwa mem on paired-fastq files
