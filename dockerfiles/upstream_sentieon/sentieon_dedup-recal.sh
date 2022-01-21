@@ -47,7 +47,7 @@ sentieon driver -t $nt -i sorted.bam --algo Dedup --optical_dup_pix_dist $optica
 # 3. Base recalibration.
 # ******************************************
 sentieon driver -r $fasta -t $nt -i deduped.bam --algo QualCal -k $dbsnp -k $known_Mills_indels recal_data.table || exit 1
-sentieon driver -r $fasta -t $nt -i deduped.bam -q recal_data.table --algo ReadWriter recalibrated.bam || exit 1
+sentieon driver -r $fasta -t $nt -i deduped.bam --read_filter QualCalFilter,table=recal_data.table,indel=false --algo ReadWriter recalibrated.bam || exit 1
 
 # ******************************************
 # 4. Check recalibrated bam integrity.
