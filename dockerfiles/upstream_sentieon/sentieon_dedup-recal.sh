@@ -36,16 +36,18 @@ ln -s ${reference_fa}.dict reference.dict
 sentieon util sort -t $nt -i $raw_bam -o sorted.bam || exit 1
 
 # ******************************************
-# 2. Remove Duplicate Reads. It is possible
-# to mark instead of remove duplicates
-# by ommiting the --rmdup option in Dedup.
+# 2. Mark/Remove Duplicate Reads. By
+# ommiting the --rmdup option in Dedup
+# we are only marking to match upstream GATK
 # ******************************************
 sentieon driver -t $nt -i sorted.bam --algo LocusCollector --fun score_info score.txt || exit 1
 sentieon driver -t $nt -i sorted.bam --algo Dedup --optical_dup_pix_dist $optical_dup_pix_dist --score_info score.txt --metrics dedup_metrics.txt deduped.bam || exit 1
 
-# ******************************************
-# 3. Base recalibration.
-# ******************************************
+# *****************************************************************************
+# 3. Base recalibration - see:
+# https://support.sentieon.com/appnotes/arguments/#bqsr-calculate-recalibration
+# not generating RECAL_DATA.TABLE.POST for plotting, just need recal_data.table
+# *****************************************************************************
 sentieon driver -r $fasta -t $nt -i deduped.bam --algo QualCal -k $dbsnp -k $known_Mills_indels recal_data.table || exit 1
 sentieon driver -r $fasta -t $nt -i deduped.bam --read_filter QualCalFilter,table=recal_data.table,indel=false --algo ReadWriter recalibrated.bam || exit 1
 
