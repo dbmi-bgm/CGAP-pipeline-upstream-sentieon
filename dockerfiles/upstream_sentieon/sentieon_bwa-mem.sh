@@ -41,7 +41,7 @@ ln -s ${reference_bwt}.alt reference.fasta.alt
 # To have number of threads independent results,
 # add chunk size option -K 10000000.
 # ******************************************
-( sentieon bwa mem -M -t $nt -K 10000000 $fasta $fastq_1 $fastq_2 || exit 1 ) | samtools view -@ $nt -Shb - > raw.bam || exit 1
+( sentieon bwa mem -t $nt -K 10000000 $fasta $fastq_1 $fastq_2 || exit 1 ) | samtools view -@ $nt -Shb - > raw.bam || exit 1
 
 # ******************************************
 # 2. Check recalibrated bam integrity.
