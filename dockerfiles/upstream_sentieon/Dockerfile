@@ -42,12 +42,31 @@ RUN conda install -c bioconda -y python=3.6.8 && \
     conda clean -a -y -f
 
 # sentieon
-RUN wget https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-202010.02.tar.gz && \
-    tar -xzvf sentieon-genomics-202010.02.tar.gz && \
-    ln -s sentieon-genomics-202010.02 sentieon
+RUN wget https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-202112.01.tar.gz && \
+    tar -xzvf sentieon-genomics-202112.01.tar.gz && \
+    ln -s sentieon-genomics-202112.01 sentieon
+
+# samtools
+RUN wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2 && \
+    tar -xjf samtools-1.9.tar.bz2 && \
+    rm -rf samtools-1.9.tar.bz2 && \
+    cd samtools-1.9 && \
+    ./configure && \
+    make && \
+    cd .. && \
+    ln -s samtools-1.9 samtools
+
+# bwa mem
+COPY sentieon_bwa-mem.sh .
+RUN chmod +x sentieon_bwa-mem.sh
+
+# dedup and recal
+COPY sentieon_dedup-recal.sh .
+RUN chmod +x sentieon_dedup-recal.sh
 
 # env paths
 ENV PATH=/usr/local/bin/sentieon/bin/:$PATH
+ENV PATH=/usr/local/bin/samtools/:$PATH
 
 # supporting UTF-8
 RUN locale-gen "en_US.UTF-8" && update-locale LC_ALL="en_US.UTF-8"
