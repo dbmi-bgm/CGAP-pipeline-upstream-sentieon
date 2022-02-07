@@ -56,10 +56,6 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9
     cd .. && \
     ln -s samtools-1.9 samtools
 
-# fastq to bam
-COPY sentieon_fastq2bam.sh .
-RUN chmod +x sentieon_fastq2bam.sh
-
 # bwa mem
 COPY sentieon_bwa-mem.sh .
 RUN chmod +x sentieon_bwa-mem.sh
