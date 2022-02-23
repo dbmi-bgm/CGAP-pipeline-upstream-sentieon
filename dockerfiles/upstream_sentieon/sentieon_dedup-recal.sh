@@ -38,7 +38,7 @@ sentieon util sort -t $nt -i $raw_bam -o sorted.bam || exit 1
 # ******************************************
 # 2. Mark/Remove Duplicate Reads. By
 # ommiting the --rmdup option in Dedup
-# we are only marking to match upstream GATK
+# we are only marking to match upstream GATK.
 # ******************************************
 sentieon driver -t $nt -i sorted.bam --algo LocusCollector --fun score_info score.txt || exit 1
 sentieon driver -t $nt -i sorted.bam --algo Dedup --optical_dup_pix_dist $optical_dup_pix_dist --score_info score.txt --metrics dedup_metrics.txt deduped.bam || exit 1

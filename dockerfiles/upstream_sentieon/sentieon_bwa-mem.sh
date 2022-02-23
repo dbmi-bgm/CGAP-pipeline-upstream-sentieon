@@ -44,7 +44,7 @@ ln -s ${reference_bwt}.alt reference.fasta.alt
 ( sentieon bwa mem -t $nt -K 10000000 $fasta $fastq_1 $fastq_2 || exit 1 ) | samtools view -@ $nt -Shb - > raw.bam || exit 1
 
 # ******************************************
-# 2. Check recalibrated bam integrity.
+# 2. Check bam integrity.
 # ******************************************
 py_script="
 import sys, os
