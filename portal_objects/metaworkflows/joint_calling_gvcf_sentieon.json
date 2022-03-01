@@ -10,7 +10,8 @@
   "input": [
     {
       "argument_name": "input_gvcfs",
-      "argument_type": "file"
+      "argument_type": "file",
+      "dimensionality": 1
     },
     {
       "argument_name": "reference_fa",
@@ -39,7 +40,7 @@
           "vcf": {
               "file_type": "jointly-called vcf",
               "variant_type": "SNV",
-              "description": "jointly-called sentieon output in vcf format"
+              "description": "jointly-called output from GVCFtyper in vcf format"
           }
       },
       "input": [
