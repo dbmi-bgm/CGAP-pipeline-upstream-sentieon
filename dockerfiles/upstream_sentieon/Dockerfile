@@ -45,7 +45,7 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9
 COPY sentieon_bwa-mem.sh .
 RUN chmod +x sentieon_bwa-mem.sh
 
-## sentieon_dedup-reca
+## sentieon_dedup-recal
 COPY sentieon_dedup-recal.sh .
 RUN chmod +x sentieon_dedup-recal.sh
 
