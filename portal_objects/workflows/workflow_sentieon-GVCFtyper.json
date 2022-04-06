@@ -32,8 +32,6 @@
   "cwl_main_filename": "sentieon-GVCFtyper.cwl",
   "cwl_pointer": "",
   "description": "Run sentieon GVCFtyper on input g.vcf files",
-  "docker_image_name": "ACCOUNT/upstream_sentieon:VERSION",
-  "docker_registry_url": "https://console.aws.amazon.com/ecr/repositories/",
   "institution": "INSTITUTION_UUID",
   "name": "workflow_sentieon-GVCFtyper_VERSION",
   "aliases": ["cgap:workflow_sentieon-GVCFtyper_VERSION"],

@@ -37,8 +37,6 @@
   "cwl_main_filename": "sentieon_dedup-recal.cwl",
   "cwl_pointer": "",
   "description": "Run sentieon algorithms to remove duplicates and apply base recalibration to input bam file. The input file must be sorted and tagged with read groups. An integrity check is performed on the output file",
-  "docker_image_name": "ACCOUNT/upstream_sentieon:VERSION",
-  "docker_registry_url": "https://console.aws.amazon.com/ecr/repositories/",
   "institution": "INSTITUTION_UUID",
   "name": "workflow_sentieon_dedup-recal_VERSION",
   "aliases": ["cgap:workflow_sentieon_dedup-recal_VERSION"],
