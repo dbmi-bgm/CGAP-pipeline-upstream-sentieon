@@ -11,15 +11,3 @@ This repository contains components for the CGAP upstream pipeline and the joint
 The upstream pipeline can process paired `fastq` files up to analysis ready `bam` files.
 The joint calling pipeline can jointly call multiple `g.vcf` files and produces a `vcf` file as output.
 For more details check the [*documentation*](https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/upstream_sentieon/index-upstream_sentieon.html "upstream pipeline Sentieon").
-
-### Version Updates
-
-#### v1.0.0
-* v1 -> v1.0.0, we are starting a new more comprehensive versioning system
-* Added some change in metaworkflows to accomodate the changes in foursight
-* Added components to replace `bwa-mem` with sentieon implementation
-* Added components to replace GATK `MarkDuplicates`, `BaseRecalibrator`, `ApplyBQSR` with sentieon implementation
-
-#### v1
-* Initial release for joint calling pipeline
-* Changes in repo structure to allow for compatibility with new pipeline organization
