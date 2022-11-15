@@ -1,0 +1,72 @@
+## Pipeline information #####################################
+#     General information for the pipeline
+#############################################################
+name: sentieon_joint-calling_gvcf
+description: Jointly genotype multiple GVCF files using Sentieon GVCFtyper algorithm.
+
+## General arguments ########################################
+#     Pipeline input, reference files, and general arguments
+#       define all arguments for the pipeline here
+#############################################################
+input:
+
+  # File argument
+  input_gvcfs:
+    argument_type: file.gvcf_gz
+    dimensionality: 1
+
+  reference_fa:
+    argument_type: file.fa
+    files:
+      - complete-reference-fasta@hg38
+
+  known-sites-snp:
+    argument_type: file.vcf_gz
+    files:
+      - dbsnp-common@151
+
+## Workflows and dependencies ###############################
+#     Information for the workflows and their dependencies
+#############################################################
+workflows:
+
+  ## Workflow definition #####################
+  #   sentieon-GVCFtyper
+  ############################################
+  sentieon-GVCFtyper:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      input_gvcfs:
+        argument_type: file.gvcf_gz
+
+      reference:
+        argument_type: file.fa
+        source_argument_name: reference_fa
+
+      known-sites-snp:
+        argument_type: file.vcf_gz
+
+    ## Output ##########################
+    #     Output files for the workflow
+    ####################################
+    output:
+
+      # File output
+      vcf:
+        file_type: joint-genotyped VCF
+        description: output from GVCFtyper in VCF format
+        variant_type: SNV
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5a.8xlarge
+      ebs_size: "4x"
+      EBS_optimized: True
+      spot_instance: False
+      run_name: run_sentieon-GVCFtyper
+      behavior_on_capacity_limit: wait_and_retry

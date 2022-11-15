@@ -1,0 +1,81 @@
+#***************************************************************
+# ANNOTATION SOURCE
+#***************************************************************
+################################################################
+# dbSNP build 151, hg38/GRCh38
+#   Common variants only
+################################################################
+name: dbsnp-common
+description: Common variants from dbSNP build 151. |
+             Build hg38/GRCh38.
+format: vcf_gz
+version: "151"
+secondary_files:
+  - vcf_gz_tbi
+# Required to enable sync with a reference bucket
+uuid: 8ed35691-0af4-467a-adbc-81eb088549f0
+accession: GAPFI4LJRN98
+
+---
+
+################################################################
+# Mills and 1000G gold standard INDEL, hg38/GRCh38
+################################################################
+name: mills-1000g-gold-standard-indel
+description: Mills and 1000G gold standard INDEL. |
+             Build hg38/GRCh38.
+format: vcf
+version: hg38
+secondary_files:
+  - vcf_idx
+# Required to enable sync with a reference bucket
+uuid: 55ac5044-f927-4df7-afa2-bf713764ee57
+accession: GAPFIAX2PPYB
+
+---
+
+################################################################
+# 1000G omni, 2.5
+################################################################
+name: 1000g-omni
+description: 1000G omni version 2.5. |
+             Build hg38/GRCh38.
+format: vcf
+version: "2.5"
+secondary_files:
+  - vcf_idx
+# Required to enable sync with a reference bucket
+uuid: 3f7161f3-1698-4665-a59b-20c3009a3998
+accession: GAPFINDZ7H7H
+
+---
+
+################################################################
+# 1000G phase1 high confidence SNP, hg38/GRCh38
+################################################################
+name: 1000g-phase1-snps-high-confidence
+description: 1000G phase1 high confidence SNP. |
+             Build hg38/GRCh38.
+format: vcf
+version: hg38
+secondary_files:
+  - vcf_idx
+# Required to enable sync with a reference bucket
+uuid: 5ca55bd5-4050-440e-b060-9441da57060e
+accession: GAPFIEA3YJ6S
+
+---
+
+################################################################
+# HapMap, 3.3
+################################################################
+name: hapmap
+description: HapMap version 3.3. |
+             Build hg38/GRCh38.
+format: vcf
+version: "3.3"
+secondary_files:
+  - vcf_idx
+# Required to enable sync with a reference bucket
+uuid: f0684716-6c8c-4197-b9c4-a1e287d834a5
+accession: GAPFILGA4UIX
