@@ -1,5 +1,8 @@
 ### Version Updates
 
+#### v1.1.0
+* Conversion to YAML format for portal objects
+
 #### v1.0.0
 * v1 -> v1.0.0, we are starting a new more comprehensive versioning system
 * Added some change in metaworkflows to accomodate the changes in foursight
