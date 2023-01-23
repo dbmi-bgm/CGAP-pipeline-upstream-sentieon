@@ -1,0 +1,38 @@
+## Workflow information #####################################
+#     General information for the workflow
+#############################################################
+name: sentieon-GVCFtyper
+description: Run Sentieon GVCFtyper to do joint genotyping of input GVCF files.
+
+runner:
+  language: cwl
+  main: sentieon-GVCFtyper.cwl
+
+software:
+  - Sentieon@202112.01
+
+## Input information ########################################
+#     Input files and parameters
+#############################################################
+input:
+
+  # File argument
+  input_gvcfs:
+    argument_type: file.gvcf_gz
+
+  reference:
+    argument_type: file.fa
+
+  known-sites-snp:
+    argument_type: file.vcf_gz
+
+## Output information #######################################
+#     Output files and quality controls
+#############################################################
+output:
+
+  # File output
+  vcf:
+    argument_type: file.vcf_gz
+    secondary_files:
+      - vcf_gz_tbi

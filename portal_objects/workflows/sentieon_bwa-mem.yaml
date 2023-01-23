@@ -1,0 +1,42 @@
+## Workflow information #####################################
+#     General information for the workflow
+#############################################################
+name: sentieon_bwa-mem
+description: Align paired-end reads to reference genome using Sentieon implementation of bwa-mem algorithm. |
+             Processing from paired FASTQ input files to raw BAM output file. |
+             An integrity check is performed on the output file.
+
+runner:
+  language: cwl
+  main: sentieon_bwa-mem.cwl
+
+software:
+  - Sentieon@202112.01
+  - samtools@1.9
+
+## Input information ########################################
+#     Input files and parameters
+#############################################################
+input:
+
+  # File argument
+  fastq_R1:
+    argument_type: file.fastq
+
+  fastq_R2:
+    argument_type: file.fastq
+
+  reference_fa:
+    argument_type: file.fa
+
+  reference_bwt:
+    argument_type: file.bwt
+
+## Output information #######################################
+#     Output files and quality controls
+#############################################################
+output:
+
+  # File output
+  raw_bam:
+    argument_type: file.bam

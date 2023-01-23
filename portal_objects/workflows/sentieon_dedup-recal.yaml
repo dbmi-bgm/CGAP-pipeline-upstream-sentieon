@@ -1,0 +1,43 @@
+## Workflow information #####################################
+#     General information for the workflow
+#############################################################
+name: sentieon_dedup-recal
+description: Run Sentieon algorithms to remove duplicates and apply base recalibration to input BAM file. |
+             The input file must be sorted and tagged with read groups. |
+             An integrity check is performed on the output file.
+
+runner:
+  language: cwl
+  main: sentieon_dedup-recal.cwl
+
+software:
+  - Sentieon@202112.01
+
+## Input information ########################################
+#     Input files and parameters
+#############################################################
+input:
+
+  # File argument
+  input_bam:
+    argument_type: file.bam
+
+  reference_fa:
+    argument_type: file.fa
+
+  known-sites-snp:
+    argument_type: file.vcf_gz
+
+  known-sites-indels:
+    argument_type: file.vcf
+
+## Output information #######################################
+#     Output files and quality controls
+#############################################################
+output:
+
+  # File output
+  recalibrated_bam:
+    argument_type: file.bam
+    secondary_files:
+      - bai
