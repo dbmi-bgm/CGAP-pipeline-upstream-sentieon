@@ -11,4 +11,5 @@ This repository contains components for the CGAP upstream pipeline and the joint
 
 The upstream pipeline can process paired-end `fastq` files up to analysis-ready `bam` files.
 The joint calling pipeline can jointly call multiple `g.vcf` files and produces a `vcf` file as output.
-For more details check the [*documentation*](https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/upstream_sentieon/index-upstream_sentieon.html "upstream pipeline Sentieon").
+Documentation for all CGAP Pipelines can now be found here:
+https://cgap-pipeline-main.readthedocs.io/en/latest/
