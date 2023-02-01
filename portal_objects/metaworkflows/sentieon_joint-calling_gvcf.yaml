@@ -60,6 +60,7 @@ workflows:
         file_type: joint-genotyped VCF
         description: output from GVCFtyper in VCF format
         variant_type: SNV
+        s3_lifecycle_category: long_term_archive
 
     ## EC2 Configuration to use ########
     ####################################
