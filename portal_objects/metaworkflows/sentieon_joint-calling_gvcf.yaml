@@ -25,6 +25,14 @@ input:
     files:
       - dbsnp-common@151
 
+  call_threshold:
+    argument_type: parameter.integer
+    value: "10"
+
+  emit_threshold:
+    argument_type: parameter.integer
+    value: "10"
+
 ## Workflows and dependencies ###############################
 #     Information for the workflows and their dependencies
 #############################################################
@@ -49,6 +57,12 @@ workflows:
 
       known-sites-snp:
         argument_type: file.vcf_gz
+
+      call_threshold:
+        argument_type: parameter.integer
+
+      emit_threshold:
+        argument_type: parameter.integer
 
     ## Output ##########################
     #     Output files for the workflow

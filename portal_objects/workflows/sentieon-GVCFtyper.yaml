@@ -26,6 +26,12 @@ input:
   known-sites-snp:
     argument_type: file.vcf_gz
 
+  call_threshold:
+    argument_type: parameter.integer
+
+  emit_threshold:
+    argument_type: parameter.integer
+
 ## Output information #######################################
 #     Output files and quality controls
 #############################################################
